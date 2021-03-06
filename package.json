@@ -20,7 +20,8 @@
   "files": [
     "bin",
     "dist",
-    "templates"
+    "templates",
+    "commands.d.ts"
   ],
   "lint-staged": {
     "src/**/*.ts": [
