@@ -1,0 +1,77 @@
+{
+  "name": "msw-cypress",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "bin": {
+    "msw-cypress": "./bin/msw-cypress.js"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "repository": "git@github.com:ChibiBlasphem/msw-cypress.git",
+  "author": "Christopher Debove <chibiblasphem@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist --extensions '.js,.ts' --ignore 'src/__tests__' && yarn build:definitions",
+    "lint": "eslint . --ext '.js,.ts'",
+    "test": "jest --maxWorkers=2",
+    "build:definitions": "tsc -p ./tsconfig.build.json"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "templates"
+  ],
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint . --fix",
+      "prettier --write",
+      "jest --findRelatedTests"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "peerDependencies": {
+    "msw": "^0.27.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-typescript": "^7.13.0",
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.1.1",
+    "@semantic-release/npm": "^7.0.6",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "@types/jest": "^26.0.10",
+    "@types/node": "^14.6.0",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "cypress": "^6.4.0",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "graphql": "^15.5.0",
+    "husky": "^4.3.8",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.3.0",
+    "msw": "^0.27.0",
+    "prettier": "^2.1.1",
+    "semantic-release": "^17.1.1",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "cypress-wait-until": "^1.7.1",
+    "node-match-path": "^0.6.1"
+  }
+}

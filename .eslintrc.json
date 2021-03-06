@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "env": {
+        "node": true
+      },
+      "extends": ["eslint:recommended", "plugin:node/recommended"],
+      "rules": {
+        "no-process-exit": "off"
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
+        "prettier/@typescript-eslint"
+      ],
+      "rules": {
+        "prettier/prettier": "error"
+      }
+    },
+    {
+      "files": ["src/**/*.ts"],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      }
+    }
+  ]
+}
