@@ -33,11 +33,13 @@ type Request = {
 type CreateCommandsOptions = {
   serviceWorkerPath?: string;
   handlers: RequestHandler[];
+  beforeTimeout?: number;
 };
 
 export function createCommands({
   serviceWorkerPath = '/cypressMockServiceWorker.js',
   handlers,
+  beforeTimeout,
 }: CreateCommandsOptions): void {
   let requests: Record<string, Request> = {};
   let worker: SetupWorkerApi;
@@ -85,7 +87,7 @@ export function createCommands({
           url: serviceWorkerPath,
         },
       }),
-      { log: false }
+      { log: false, timeout: beforeTimeout }
     );
   });
 
