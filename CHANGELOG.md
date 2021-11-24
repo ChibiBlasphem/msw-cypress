@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/ChibiBlasphem/msw-cypress/compare/v1.1.0...v1.2.0) (2021-11-24)
+
+
+### Features
+
+* update peer dependency to allow newer versions of msw ([#2](https://github.com/ChibiBlasphem/msw-cypress/issues/2)) ([876e66e](https://github.com/ChibiBlasphem/msw-cypress/commit/876e66ebd56927b7986c19ca5553782e54c5a7fc))
+
 # [1.1.0](https://github.com/ChibiBlasphem/msw-cypress/compare/v1.0.1...v1.1.0) (2021-06-01)
 
 
